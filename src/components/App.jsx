@@ -6,13 +6,25 @@ const Heading = styled.h1`
     color: red;
 `;
 
+const Button = styled.button`
+    color: white;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background: ${ ({type}) => type === 'cancel' ? 'tomato' : 'indigo' }
+`;
+
 class App extends Component {
     state = {  }
     render() { 
         return (
-            <Heading>
-                Styled components
-            </Heading>
+            <>
+                <Heading> Styled components</Heading>
+                <Button>Save</Button>
+                <Button type='cancel'>Cancel</Button>
+            </>
         );
     }
 }
