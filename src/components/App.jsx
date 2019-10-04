@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import GlobalStyle from './Global';
 import Fake from './Fake';
 
 const size = {
@@ -33,13 +34,6 @@ const fixedTop = css`
     top: ${({top}) => top + 'px'};
     left: 0;
 `;
-
-// можно использовать без css если нет props
-// const fixedTop = `
-//     position: fixed;
-//     top: 100px;
-//     left: 0;
-// `;
 
 const Heading = styled.h1`
     font-size: 2rem;
@@ -100,6 +94,7 @@ class App extends Component {
                     <Button>Save</Button>
                     <CancelButton top='100'>Cancel</CancelButton>
                 </header>
+                <GlobalStyle />
             </AppWrapper>
         );
     }
