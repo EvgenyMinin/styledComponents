@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Fake from './Fake';
 
 const Heading = styled.h1`
     font-size: 2rem;
@@ -11,11 +12,15 @@ const color = 'white';
 const Button = styled.button`
     color: ${color};
     font-size: 2rem;
-    padding: 5px 10px;
+    padding: 5px 20px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    background: ${ ({type}) => type === 'cancel' ? 'tomato' : 'indigo' }
+    background: indigo;
+`;
+
+const CancelButton = styled(Button)`
+    background: tomato;
 `;
 
 const AppWrapper = styled.div`
@@ -26,6 +31,15 @@ const AppWrapper = styled.div`
             background: blue;
         }
     }
+    ${Button} {
+        margin-bottom: 2rem;
+    }
+`;
+
+const StyledFake = styled(Fake)`
+    h2 {
+        color: yellow;
+    }
 `;
 
 class App extends Component {
@@ -35,8 +49,10 @@ class App extends Component {
             <AppWrapper>
                 <header>
                     <Heading> Styled components</Heading>
+                    <StyledFake />
+                    <Fake />
                     <Button>Save</Button>
-                    <Button type='cancel'>Cancel</Button>
+                    <CancelButton>Cancel</CancelButton>
                 </header>
             </AppWrapper>
         );
