@@ -28,6 +28,19 @@ const below = Object.keys(size).reduce((acc, label) => {
     return acc;
 }, {});
 
+const fixedTop = css`
+    position: fixed;
+    top: ${({top}) => top + 'px'};
+    left: 0;
+`;
+
+// можно использовать без css если нет props
+// const fixedTop = `
+//     position: fixed;
+//     top: 100px;
+//     left: 0;
+// `;
+
 const Heading = styled.h1`
     font-size: 2rem;
     color: red;
@@ -53,6 +66,7 @@ const Button = styled.button`
 
 const CancelButton = styled(Button)`
     background: tomato;
+    ${fixedTop};
 `;
 
 const AppWrapper = styled.div`
@@ -84,7 +98,7 @@ class App extends Component {
                     <StyledFake />
                     <Fake />
                     <Button>Save</Button>
-                    <CancelButton>Cancel</CancelButton>
+                    <CancelButton top='100'>Cancel</CancelButton>
                 </header>
             </AppWrapper>
         );
