@@ -1,10 +1,39 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Fake from './Fake';
+
+const size = {
+    small: 400,
+    med: 960,
+    large: 1140
+}
+
+const above = Object.keys(size).reduce((acc, label) => {
+    acc[label]  = (...args) => css`
+        @media (min-width: ${size[label]}px) {
+            ${css(...args)}
+        }
+    `
+
+    return acc;
+}, {});
+
+const below = Object.keys(size).reduce((acc, label) => {
+    acc[label]  = (...args) => css`
+        @media (max-width: ${size[label]}px) {
+            ${css(...args)}
+        }
+    `
+
+    return acc;
+}, {});
 
 const Heading = styled.h1`
     font-size: 2rem;
     color: red;
+    ${above.med`
+        color: lightgreen;
+    `}
 `;
 
 const color = 'white';
@@ -17,6 +46,9 @@ const Button = styled.button`
     border: none;
     cursor: pointer;
     background: indigo;
+    ${below.med`
+        font-size: 1rem;
+    `}
 `;
 
 const CancelButton = styled(Button)`
