@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import GlobalStyle from './Global';
 import Fake from './Fake';
-import { Heading, Button, CancelButton } from '../elements';
+import Header from '../layouts/Header';
+import { Button, CancelButton } from '../elements';
 import { teal } from '../utilities';
 
 const AppWrapper = styled.div`
@@ -29,13 +30,11 @@ class App extends Component {
     render() { 
         return (
             <AppWrapper>
-                <header>
-                    <Heading> Styled components</Heading>
-                    <StyledFake />
-                    <Fake />
-                    <Button>Save</Button>
-                    <CancelButton top='100'>Cancel</CancelButton>
-                </header>
+                <Header />
+                <StyledFake />
+                <Fake />
+                <Button>Save</Button>
+                <CancelButton top='100'>Cancel</CancelButton>
                 <GlobalStyle />
             </AppWrapper>
         );

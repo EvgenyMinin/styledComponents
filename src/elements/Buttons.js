@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { below, fixedTop } from '../utilities';
+import { below, fixed } from '../utilities';
 
 const color = 'white';
 
@@ -18,5 +18,5 @@ export const Button = styled.button`
 
 export const CancelButton = styled(Button)`
     background: tomato;
-    ${fixedTop};
+    ${fixed({ y: '100px', x: '600px' })};
 `;
