@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import GlobalStyle from './Global';
 import Fake from './Fake';
 import { Heading, Button, CancelButton } from '../elements';
+import { teal } from '../utilities';
 
 const AppWrapper = styled.div`
     header {
-        background: teal;
+        background: ${teal};
         padding: 20px;
         &:hover {
             background: blue;
