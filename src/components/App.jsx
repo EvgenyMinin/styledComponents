@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components/macro';
 import GlobalStyle from './../Global';
 import Fake from './Fake';
 import Header from '../layouts/Header';
@@ -15,9 +15,6 @@ const AppWrapper = styled.div`
         &:hover {
             background: blue;
         }
-    }
-    ${Button} {
-        margin-bottom: 2rem;
     }
 `;
 
@@ -49,7 +46,14 @@ class App extends Component {
                 <AppWrapper>
                     <Header />
                     <GlobalStyle />
-                    <main>
+                    <main
+                        css={`
+                            background: red;
+                            h2 {
+                                font-size: 50px; 
+                            }
+                        `}
+                    >
                         <ThemeProvider theme={themeTwo}>
                             <Card>
                                 <h2>Card Heading (with theme)</h2>
