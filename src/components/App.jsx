@@ -57,7 +57,7 @@ class App extends Component {
                         <ThemeProvider theme={themeTwo}>
                             <Card>
                                 <h2>Card Heading (with theme)</h2>
-                                <Card.Button>Say Hello</Card.Button>
+                                <Card.Button as='a'>Say Hello</Card.Button>
                                 <Card.Button modifiers='cancel'>Don't Say Hello</Card.Button>
                             </Card>
                         </ThemeProvider>
