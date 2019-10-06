@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 import { applyStyleModifiers } from 'styled-components-modifiers';
-import { below, white, tomato, indigo } from '../utilities';
+import { below, white, tomato, indigo, shadow } from '../utilities';
 
 const BUTTON_MODIFIERS = {
     small: () => `
@@ -9,8 +9,8 @@ const BUTTON_MODIFIERS = {
         padding: 3px 10px;
     `,
 
-    cancel: () => `
-        background: ${tomato};
+    cancel: ({theme}) => `
+        background: ${theme.colors.secondary};;
             &:hover {
                 background: ${lighten(0.2, tomato)}
             }
@@ -18,13 +18,14 @@ const BUTTON_MODIFIERS = {
 }
 
 export const Button = styled.button`
+    ${shadow[2]};
     color: ${white};
     font-size: 2rem;
     padding: 5px 20px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    background: ${indigo};
+    background: ${props => props.theme.colors.primary};
     ${below.med`
         font-size: 1rem;
     `};

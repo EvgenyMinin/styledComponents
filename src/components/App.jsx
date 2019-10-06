@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyle from './../Global';
 import Fake from './Fake';
 import Header from '../layouts/Header';
 import { Button, Card } from '../elements';
 import { teal } from '../utilities';
+
+
 
 const AppWrapper = styled.div`
     header {
@@ -25,29 +27,49 @@ const StyledFake = styled(Fake)`
     }
 `;
 
+const theme = {
+    colors: {
+        primary: '#E54B4B',
+        secondary: '#DBDE61',
+    }
+}
+
+const themeTwo = {
+    colors: {
+        primary: '#4b0082',
+        secondary: '#ff6347',
+    }
+}
+
 class App extends Component {
     state = {  }
     render() { 
         return (
-            <AppWrapper>
-                <Header />
-                <GlobalStyle />
-                <main>
-                    <Card>
-                        <h2>Card Heading</h2>
-                        <Card.Button>Say Hello</Card.Button>
-                    </Card>
-                    <Card>
-                        <h2>Card Heading</h2>
-                        <Card.Button modifiers='cancel'>Don't Say Hello</Card.Button>
-                    </Card>
-                    <StyledFake />
-                    <Fake />
-                    <Button modifiers='small'>Say Hello</Button>
-                    <Button modifiers='cancel'>Don't Say Hello</Button>
-                    <Button modifiers={['small', 'cancel']}>Don't Say Hello</Button>
-                </main>
-            </AppWrapper>
+            <ThemeProvider theme={theme}>
+                <AppWrapper>
+                    <Header />
+                    <GlobalStyle />
+                    <main>
+                        <ThemeProvider theme={themeTwo}>
+                            <Card>
+                                <h2>Card Heading (with theme)</h2>
+                                <Card.Button>Say Hello</Card.Button>
+                                <Card.Button modifiers='cancel'>Don't Say Hello</Card.Button>
+                            </Card>
+                        </ThemeProvider>
+                        <Card>
+                            <h2>Card Heading (without theme)</h2>
+                            <Card.Button>Say Hello</Card.Button>
+                            <Card.Button modifiers='cancel'>Don't Say Hello</Card.Button>
+                        </Card>
+                        <StyledFake />
+                        <Fake />
+                        <Button modifiers='small'>Say Hello</Button>
+                        <Button modifiers='cancel'>Don't Say Hello</Button>
+                        <Button modifiers={['small', 'cancel']}>Don't Say Hello</Button>
+                    </main>
+                </AppWrapper>
+            </ThemeProvider>
         );
     }
 }
