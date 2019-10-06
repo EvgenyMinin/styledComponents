@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GlobalStyle from './../Global';
 import Fake from './Fake';
 import Header from '../layouts/Header';
-import { Button } from '../elements';
+import { Button, Card } from '../elements';
 import { teal } from '../utilities';
 
 const AppWrapper = styled.div`
@@ -31,13 +31,22 @@ class App extends Component {
         return (
             <AppWrapper>
                 <Header />
-                <StyledFake />
-                <Fake />
-                <Button>Say Hello</Button>
-                <Button modifiers='small'>Say Hello</Button>
-                <Button modifiers='cancel'>Don't Say Hello</Button>
-                <Button modifiers={['small', 'cancel']}>Don't Say Hello</Button>
                 <GlobalStyle />
+                <main>
+                    <Card>
+                        <h2>Card Heading</h2>
+                        <Card.Button>Say Hello</Card.Button>
+                    </Card>
+                    <Card>
+                        <h2>Card Heading</h2>
+                        <Card.Button modifiers='cancel'>Don't Say Hello</Card.Button>
+                    </Card>
+                    <StyledFake />
+                    <Fake />
+                    <Button modifiers='small'>Say Hello</Button>
+                    <Button modifiers='cancel'>Don't Say Hello</Button>
+                    <Button modifiers={['small', 'cancel']}>Don't Say Hello</Button>
+                </main>
             </AppWrapper>
         );
     }
