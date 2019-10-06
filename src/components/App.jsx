@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GlobalStyle from './Global';
 import Fake from './Fake';
 import Header from '../layouts/Header';
-import { Button, CancelButton } from '../elements';
+import { Button } from '../elements';
 import { teal } from '../utilities';
 
 const AppWrapper = styled.div`
@@ -33,8 +33,9 @@ class App extends Component {
                 <Header />
                 <StyledFake />
                 <Fake />
-                <Button>Save</Button>
-                <CancelButton top='100'>Cancel</CancelButton>
+                <Button>Say Hello</Button>
+                <Button size='small'>Say Hello</Button>
+                <Button type='cancel'>Don't Say Hello</Button>
                 <GlobalStyle />
             </AppWrapper>
         );

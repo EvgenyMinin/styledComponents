@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import { below, fixed } from '../utilities';
-
-const color = 'white';
+import { below, white, green } from '../utilities';
 
 export const Button = styled.button`
-    color: ${color};
+    color: ${white};
     font-size: 2rem;
     padding: 5px 20px;
     border-radius: 4px;
@@ -13,10 +11,23 @@ export const Button = styled.button`
     background: indigo;
     ${below.med`
         font-size: 1rem;
-    `}
-`;
-
-export const CancelButton = styled(Button)`
-    background: tomato;
-    ${fixed({ y: '100px', x: '600px' })};
+    `};
+    &:hover {
+        background: ${green};
+    };
+    ${({size}) => {
+        if (size === 'small') {
+            return `
+                font-size: 1rem;
+                padding: 3px 10px;
+            `;
+        }
+    }}
+    ${({type}) => {
+        if (type === 'cancel') {
+            return `
+                background: tomato;
+            `;
+        }
+    }}
 `;
