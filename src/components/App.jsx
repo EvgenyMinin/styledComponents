@@ -34,8 +34,9 @@ class App extends Component {
                 <StyledFake />
                 <Fake />
                 <Button>Say Hello</Button>
-                <Button size='small'>Say Hello</Button>
-                <Button type='cancel'>Don't Say Hello</Button>
+                <Button modifiers='small'>Say Hello</Button>
+                <Button modifiers='cancel'>Don't Say Hello</Button>
+                <Button modifiers={['small', 'cancel']}>Don't Say Hello</Button>
                 <GlobalStyle />
             </AppWrapper>
         );

@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import { applyStyleModifiers } from 'styled-components-modifiers';
 import { below, white, tomato, indigo } from '../utilities';
+
+const BUTTON_MODIFIERS = {
+    small: () => `
+        font-size: 1rem;
+        padding: 3px 10px;
+    `,
+
+    cancel: () => `
+        background: ${tomato};
+            &:hover {
+                background: ${lighten(0.2, tomato)}
+            }
+    `
+}
 
 export const Button = styled.button`
     color: ${white};
@@ -16,22 +31,6 @@ export const Button = styled.button`
     &:hover {
         background: ${lighten(0.2, indigo)};
     };
-    ${({size}) => {
-        if (size === 'small') {
-            return `
-                font-size: 1rem;
-                padding: 3px 10px;
-            `;
-        }
-    }}
-    ${({type}) => {
-        if (type === 'cancel') {
-            return `
-                background: ${tomato};
-                &:hover {
-                    background: ${lighten(0.2, tomato)}
-                }
-            `;
-        }
-    }}
+
+    ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
