@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { below, white, green } from '../utilities';
+import { lighten } from 'polished';
+import { below, white, tomato, indigo } from '../utilities';
 
 export const Button = styled.button`
     color: ${white};
@@ -8,12 +9,12 @@ export const Button = styled.button`
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    background: indigo;
+    background: ${indigo};
     ${below.med`
         font-size: 1rem;
     `};
     &:hover {
-        background: ${green};
+        background: ${lighten(0.2, indigo)};
     };
     ${({size}) => {
         if (size === 'small') {
@@ -26,7 +27,10 @@ export const Button = styled.button`
     ${({type}) => {
         if (type === 'cancel') {
             return `
-                background: tomato;
+                background: ${tomato};
+                &:hover {
+                    background: ${lighten(0.2, tomato)}
+                }
             `;
         }
     }}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import GlobalStyle from './Global';
+import GlobalStyle from './../Global';
 import Fake from './Fake';
 import Header from '../layouts/Header';
 import { Button } from '../elements';
